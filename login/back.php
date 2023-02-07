@@ -21,7 +21,7 @@ if($nbrExist>0){
         if($password==$dbPassword){
             $_SESSION["idUser"]=$dbId;
             $_SESSION["username"]=$username;
-            header("location:../chat/chat.php");
+            header("location:../chat/");
         }else{
             ?>
                 <script>

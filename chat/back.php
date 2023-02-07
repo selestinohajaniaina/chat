@@ -1,20 +1,13 @@
 <?php
 
-//including db
-
-require('../db.php');
 
 //clicking at send
 
 if(isset($_GET["send"])){
+    $textMsg=$_GET["textMsg"];
     if(empty($textMsg)){
-        ?>
-        <script>alert();</script>
-        <?php
     }else{
-            //chaging variable
-            $textMsg=$_GET["textMsg"];
-
+        require('send.php');
     }
 }
 ?>
