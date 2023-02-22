@@ -3,7 +3,6 @@
 //including db
 
 require('../db.php');
-
 $select=$db->prepare("select * from user where (email='$email' and username='$username' and password='$password')");
 $select->execute();
 $nbrExist=$select->rowCount();
@@ -24,7 +23,7 @@ if($nbrExist>0){
     
     //inserting to db 
     
-    $insert=$db->prepare("INSERT INTO user(email, username, password) VALUES (email='$email', username='$username', password='$password')");
+    $insert=$db->prepare("INSERT INTO user(email, username, password) VALUES (email='$email', username='$username', password='$pass')");
     $insert->execute();
     
     //fetching idUser && selected

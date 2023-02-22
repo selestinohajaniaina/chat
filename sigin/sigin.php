@@ -80,6 +80,7 @@
       </script>
       <?php
     }else{
+      $pass=password_hash($password,PASSWORD_BCRYPT);
       require('back.php');
     }
   }

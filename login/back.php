@@ -18,7 +18,7 @@ if($nbrExist>0){
     $dbPassword=$fetch["password"];
     $dbId=$fetch["idUser"];
 
-        if($password==$dbPassword){
+        if(password_verify($dbpassword,$password)){
             $_SESSION["idUser"]=$dbId;
             $_SESSION["username"]=$username;
             header("location:../chat/");

@@ -43,7 +43,7 @@
  <?php
   if(isset($_POST["login"])){
     $username=$_POST["username"];
-    $password=$_POST["password"];
+    $password=password_hash($_POST["password"],PASSWORD_BCRYPT);
     if(empty($username)||empty($password)){
       ?>
       <script>
