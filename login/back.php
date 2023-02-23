@@ -6,7 +6,7 @@ require('../db.php');
 
 //selecting to db and count if it exist
 
-$select=$db->prepare("select * from user where username='$username'");
+$select=$db->prepare("select * from user where email='$email'");
 $select->execute();
 $nbrExist=$select->rowCount();
 $fetch=$select->fetch();
@@ -17,11 +17,12 @@ if($nbrExist>0){
 
     $dbPassword=$fetch["password"];
     $dbId=$fetch["idUser"];
+    // echo $password;
 
-        if(password_verify($dbpassword,$password)){
+        if((password_verify($dbPassword,$password))){
             $_SESSION["idUser"]=$dbId;
-            $_SESSION["username"]=$username;
-            header("location:../chat/");
+            // $_SESSION["username"]=$username;
+            header("location:../chat");
         }else{
             ?>
                 <script>
@@ -32,10 +33,10 @@ if($nbrExist>0){
             <?php
         }
 }else{
-
+    
     ?>
       <script>
-        let error = document.querySelector("#error");
+          let error = document.querySelector("#error");
         error.innerHTML="ce compte n'existe pas, veillez creer";
         error.setAttribute("class","text-sm text-blue-500 bg-blue-200");
       </script>

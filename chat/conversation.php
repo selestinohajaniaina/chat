@@ -5,7 +5,7 @@
     $nbrMsg=$selectMsg->rowCount();
     $fetchMsg=$selectMsg->fetchAll();
     
-        
+        echo $idUser;
 ?>
 <div class=" grid grid-cols-4 max-h-[80vh] overflow-y-auto w-full p-2" id="contener">
     <?php 

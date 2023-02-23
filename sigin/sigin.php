@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sigin</title>
     <link rel="stylesheet" href="../css/tailwind.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../css/tailwind.min.js"></script>
 </head>
 <body>
     <!-- component -->
-<div class="bg-yellow-400 h-screen flex items-center justify-center"id="contener">
+<div class="bg-yellow-400 h-screen flex items-center justify-center" id="contener">
   <div class="bg-white lg:w-5/12 md:6/12 w-10/12 shadow-3xl">
     <div class="bg-gray-800 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFF">
         <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
       </svg>
     </div>
-    <form class="p-12 md:p-24" method="post">
+    <form class="p-12 md:p-24" method="get">
 
     <div class="flex items-center text-lg mb-6 md:mb-8">
     <svg width="24" viewBox="0 0 24 24" fill="#000" class="absolute ml-3">
@@ -58,11 +58,11 @@
   </div>
  </div>
  <?php
-  if(isset($_POST["sigin"])){
-    $username=$_POST["username"];
-    $password=$_POST["password"];
-    $confirm=$_POST["confirm"];
-    $email=$_POST["email"];
+  if(isset($_GET["sigin"])){
+    $username=$_GET["username"];
+    $password=$_GET["password"];
+    $confirm=$_GET["confirm"];
+    $email=$_GET["email"];
     if(empty($username)||empty($password)||empty($confirm)||empty($email)){
       ?>
       <script>
@@ -80,7 +80,7 @@
       </script>
       <?php
     }else{
-      $pass=password_hash($password,PASSWORD_BCRYPT);
+      // $pass=password_hash($password,PASSWORD_BCRYPT);
       require('back.php');
     }
   }
