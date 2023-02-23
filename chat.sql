@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 07 fév. 2023 à 13:06
+-- Généré le :  jeu. 23 fév. 2023 à 14:22
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -34,35 +34,64 @@ CREATE TABLE IF NOT EXISTS `message` (
   `idUser` int(11) NOT NULL,
   `msg` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idMsg`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Déchargement des données de la table `message`
+-- Structure de la table `pdc`
 --
 
-INSERT INTO `message` (`idMsg`, `idUser`, `msg`) VALUES
-(1, 1, 'bonjour'),
-(2, 1, 'comment ca va?'),
-(3, 1, 'this is your probleme :)'),
-(4, 1, 'kkkkk'),
-(5, 1, 'hello world'),
-(14, 1, 'yes world'),
-(15, 2, 'je suis nouveau'),
-(47, 2, 'pourquoi ca'),
-(46, 2, 'kkkkk'),
-(45, 2, 'ici c\'est moi'),
-(44, 2, '{{first name}}'),
-(43, 2, 'ok ok'),
-(42, 2, 'moi mon frere'),
-(41, 1, '032 41 109 23'),
-(40, 1, '032'),
-(39, 1, 'my name too'),
-(38, 2, 'tsy met ai'),
-(37, 2, '123'),
-(36, 2, 'kkkk'),
-(35, 2, 'hello'),
-(34, 2, 'comme tu veut'),
-(33, 2, 'oui oui, nous somme tous');
+DROP TABLE IF EXISTS `pdc`;
+CREATE TABLE IF NOT EXISTS `pdc` (
+  `id_pdc` int(11) NOT NULL AUTO_INCREMENT,
+  `idUser` varchar(10000) NOT NULL,
+  `photo` varchar(10000) NOT NULL,
+  PRIMARY KEY (`id_pdc`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `pdc`
+--
+
+INSERT INTO `pdc` (`id_pdc`, `idUser`, `photo`) VALUES
+(1, '16', '16.jfif');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pdp`
+--
+
+DROP TABLE IF EXISTS `pdp`;
+CREATE TABLE IF NOT EXISTS `pdp` (
+  `id_pdp` int(11) NOT NULL AUTO_INCREMENT,
+  `idUser` varchar(10000) NOT NULL,
+  `photo` varchar(10000) NOT NULL,
+  PRIMARY KEY (`id_pdp`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `pdp`
+--
+
+INSERT INTO `pdp` (`id_pdp`, `idUser`, `photo`) VALUES
+(2, '16', '16.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `post`
+--
+
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE IF NOT EXISTS `post` (
+  `id_post` int(11) NOT NULL AUTO_INCREMENT,
+  `idOwner` varchar(10000) NOT NULL,
+  `legend` varchar(1000) NOT NULL,
+  `photo` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id_post`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -73,19 +102,19 @@ INSERT INTO `message` (`idMsg`, `idUser`, `msg`) VALUES
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `idUser` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(70) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `photo` text DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(500) NOT NULL,
   PRIMARY KEY (`idUser`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`idUser`, `username`, `password`, `photo`) VALUES
-(1, 'selestino', '123', NULL),
-(2, 'alexandre', '123', NULL);
+INSERT INTO `user` (`idUser`, `email`, `username`, `password`) VALUES
+(15, 'chauffemarcelhot@gmail.com', 'alexandre', '12345678'),
+(16, 'selestinoolivier@gmail.com', 'selestino', '12345678');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
