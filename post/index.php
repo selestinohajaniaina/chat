@@ -1,13 +1,23 @@
 <?php
+
+//calling db
+
 require('../db.php');
+
+
+//calling session
 
 session_start();
 
-// $username=$_SESSION["username"];
+// getting session variable
+
 $idUser=$_SESSION["idUser"];
+/* $username=$_SESSION["username"];*/
 
-// including the list of post
 
-require("liste_post.php");
+
+// including the created post
+
+require("post.php");
 
 ?>

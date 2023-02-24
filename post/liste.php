@@ -4,8 +4,8 @@
 
 $postSelect = $db -> prepare("SELECT * FROM post ORDER BY id_post DESC");
 $postSelect->execute();
-$postFetch=$postSelect->fetchAll();
-$listeNbr = count($postFetch);
+$fetch=$postSelect->fetchAll();
+$listeNbr = count($fetch);
 
 //list of all post include at <class=table>
 
@@ -51,25 +51,13 @@ for($i=0;$i<$listeNbr;$i++){
             
             <div class="td">
             <p class="legende"><?=$post_legende?></p>
-            <img src="../<?=$post_img?>" title="<?=$post_id?>"/>
+            <img src="../img/post/<?=$post_img?>" title="<?=$post_id?>"/>
             
-            </div>
-            <!-- barre du commentaire -->
-            <div class="comments">
-                <form method="post">
-                <input type="text" name="commentaire" id="comentaire" placeholder="envoyer votre comentaire..." autocomplete="off" required>
-                <input type="submit" value="" name="valider" style="visibility:hidden;">
-                </form>
-                <?php
-                $newID=$post_id;
-                if(isset($_POST["valider"])){
-                    $commentaire=$_POST["commentaire"];
-                    header("location:../commentaire/index.php?iduser=$idUser&rangpost=$newID&coms=$commentaire");
-                }
-                ?>
             </div>
 </div>
 </div>
 <?php
 }
+
+
 ?>

@@ -62,15 +62,12 @@
             <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
               <?=$username?>
             </h3>
-            <div class="flex justify-center items-center text-sm leading-normal mt-5 mb-2 text-blueGray-400 lowerercase">
+            <div class="flex justify-center text-sm leading-normal mt-5 mb-2 text-blueGray-400 lowerercase">
               <!-- <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i> -->
               <!-- <i class="fa fa-envelope" style='color:#94a3b8;transform:scale(1.2)'></i> -->
-              <span class="w-fit">
-              <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none">
-                <path class="w-fit" d="M4 7L10.94 11.3375C11.5885 11.7428 12.4115 11.7428 13.06 11.3375L20 7M5 18H19C20.1046 18 21 17.1046 21 16V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18Z" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                </path>
+              <svg width="24" viewBox="0 0 24 24" fill="#94a3b8" >
+                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"></path>
               </svg>
-              </span>
               &ensp;
               <?=$email?>
             </div>
