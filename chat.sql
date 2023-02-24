@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 23 fév. 2023 à 14:22
+-- Généré le :  ven. 24 fév. 2023 à 14:24
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -88,10 +88,17 @@ DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
   `id_post` int(11) NOT NULL AUTO_INCREMENT,
   `idOwner` varchar(10000) NOT NULL,
-  `legend` varchar(1000) NOT NULL,
-  `photo` varchar(1000) NOT NULL,
+  `legend` varchar(1000) DEFAULT NULL,
+  `photo` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id_post`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `post`
+--
+
+INSERT INTO `post` (`id_post`, `idOwner`, `legend`, `photo`) VALUES
+(14, '16', 'c\'est ionic version 2', 'ehd4W.jpg');
 
 -- --------------------------------------------------------
 
