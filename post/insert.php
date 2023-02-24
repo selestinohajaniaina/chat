@@ -8,10 +8,8 @@ require('random.php');
 
 if(isset($_POST["btn_post"])){
 
-        $legende=$_POST["legende"];
-        $image_post=$_FILES["imagepost"]["name"];
-
-        if(empty($legende)&&empty($image_post)){
+        
+        if(empty($_POST["legende"])&&empty($_FILES["imagepost"]["name"])){
                 ?>
 
                         <script>
@@ -22,7 +20,9 @@ if(isset($_POST["btn_post"])){
                 <?php
         }else{
 
-
+                $legende=$_POST["legende"];
+                $image_post=$_FILES["imagepost"]["name"];
+                
 
         //change the file name
 

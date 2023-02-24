@@ -13,7 +13,7 @@ if(isset($_POST["creatpost"])){
 <div class="flex justify-center">
   <div class="relative mb-3 xl:w-96" data-te-input-wrapper-init>
     <textarea
-      class="font-medium peer block min-h-[auto] w-full rounded border-1 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-800 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+      class="font-medium peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 focus:border-blue-600 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-800 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
       rows="2"
       placeholder="Your message"></textarea>
     <label
@@ -24,9 +24,14 @@ if(isset($_POST["creatpost"])){
 </div>
 
         <div class="img"></div>
-            <input type="file" name="imagepost" id="image_post" value="ajouter une image"><br>
-            <input type="submit" value="publier" name="btn_post" onclick="g();">
-            <input type="button" value="Annuler" onclick="g();">
+        <div class="border-solid flex justify-center border-blue-600 rounded border-2" id="imgContent">
+          <label class="bg-red-500 font-medium">Choisir une image</label>
+        <input type="file" name="imagepost" id="image_post" class="outline-none opacity-10 absolute" onchange="charge();">
+        </div>
+            <div class="flex justify-center">
+            <input type="submit" value="publier" name="btn_post" onclick="g();" class="bg-blue-500 py-1 px-4 mx-1 my-2 rounded-lg " />
+            <input type="button" value="Annuler" onclick="g();" class="bg-gray-200 h-fit py-1 px-4 mx-1 my-2 rounded-lg">
+            </div>
         </form>
         
     </dialog>
@@ -40,7 +45,21 @@ if(isset($_POST["creatpost"])){
             const dialog = document.querySelector('.demo-dialog');
             dialog.close();
         }
+        function charge(){
+          let imgContent = document.querySelector('#imgContent');
+          let file = document.querySelector('#image_post');
+          let newImg = new Image();
+          newImg.src=file.value;
+          imgContent.appendChild(newImg);
+        }
     </script>
+
+<style>
+  input{
+    cursor: pointer;
+  }
+</style>
+
     <?php
 }
 require('insert.php');

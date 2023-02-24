@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$username.$idUser?></title>
-    <!-- <link rel="stylesheet" href="../css/tailwind.css">
-    <link rel="stylesheet" href="../css/all.min.css"> -->
-    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../css/tailwind.css">
 </head>
 <body>
   
@@ -34,7 +31,7 @@
           <div class="flex flex-wrap justify-center">
             <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
               <div class="relative ">
-                <img src="../img/profil/<?=$pdp?>" class="hover:shadow-lg hover:shadow-indigo-50 cursor-pointer shadow-xl rounded-full h-auto align-middle border-solid border-2 border-sky-500 absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+                <img src="../img/profil/<?=$pdp?>" class="hover:shadow-lg hover:shadow-indigo-50 cursor-pointer shadow-xl rounded-full h-auto align-middle border-solid border-2 border-white absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
               </div>
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
@@ -59,7 +56,7 @@
             </div>
           </div>
           <div class="text-center mt-12">
-            <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+            <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
               <?=$username?>
             </h3>
             <div class="flex justify-center text-sm leading-normal mt-5 mb-2 text-blueGray-400 lowerercase">
