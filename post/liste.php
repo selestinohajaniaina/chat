@@ -49,9 +49,9 @@ for($i=0;$i<$listeNbr;$i++){
 
             <!-- image + legende du publication -->
             
-            <div class="td">
+            <div class="td bg-red-500">
             <p class="legende"><?=$post_legende?></p>
-            <img src="../img/post/<?=$post_img?>" title="<?=$post_id?>"/>
+            <img src="../img/post/<?=$post_img?>" title="<?=$post_img?>"/>
             
             </div>
 </div>

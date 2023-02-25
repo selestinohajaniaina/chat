@@ -14,7 +14,7 @@ if(isset($_POST["btn_post"])){
 
                         <script>
                                 // alerting if all input are empty
-                                alert("vide");
+                                alert("Vous devez ajouter au moin le text a votre publication.");
                         </script>
 
                 <?php
@@ -30,13 +30,19 @@ if(isset($_POST["btn_post"])){
         $image_post=getRandomString().".".$extension;
         $upload="../img/post/".$image_post;
 
+        //date now
+        $startTime = date("Y-m-d H:i:s");
+        //add 3 hour to time
+        $now = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($startTime)));
+
         //insert -> db , the post
             
-        $insertion = $db -> prepare("INSERT INTO post (idOwner, legend, photo) VALUES (:post_autor, :post_legende, :post_image )");
+        $insertion = $db -> prepare("INSERT INTO post (idOwner, legend, photo, date) VALUES (:post_autor, :post_legende, :post_image, :post_date)");
         $insertion -> execute([
             "post_autor"=>$idUser,
             "post_legende"=>$legende,
-            "post_image"=>$image_post
+            "post_image"=>$image_post,
+            "post_date"=>$now
         ]);
         
         move_uploaded_file($_FILES["imagepost"]["tmp_name"],$upload);

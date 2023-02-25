@@ -15,12 +15,13 @@ $email=$pfetch["email"];
 $pdpSelect=$db->prepare("select * from pdp where idUser='$id_profile'");
 $pdpSelect->execute();
 $pdpFetch=$pdpSelect->fetch();
-$pdp=$pdpFetch["photo"];
+if(empty($pdpFetch["photo"])) $pdp="pdp.jpg";
+else $pdp=$pdpFetch["photo"];
 
 //selecting photo (pdc)
 $pdcSelect=$db->prepare("select * from pdc where idUser='$id_profile'");
 $pdcSelect->execute();
 $pdcFetch=$pdcSelect->fetch();
-$pdc=$pdcFetch["photo"];
-
+if(empty($pdcFetch["photo"])) $pdc="pdc.png";
+else $pdc=$pdcFetch["photo"];
 ?>

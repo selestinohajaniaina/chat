@@ -13,6 +13,7 @@ if(isset($_POST["creatpost"])){
 <div class="flex justify-center">
   <div class="relative mb-3 xl:w-96" data-te-input-wrapper-init>
     <textarea
+      name="legende"
       class="font-medium peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 focus:border-blue-600 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-800 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
       rows="2"
       placeholder="Your message"></textarea>
@@ -23,14 +24,14 @@ if(isset($_POST["creatpost"])){
   </div>
 </div>
 
-        <div class="img"></div>
-        <div class="border-solid flex justify-center border-blue-600 rounded border-2" id="imgContent">
-          <label class="bg-red-500 font-medium">Choisir une image</label>
-        <input type="file" name="imagepost" id="image_post" class="outline-none opacity-10 absolute" onchange="charge();">
+<div class="border-solid min-h-8 w-96 relative overflow-hidden cursor-pointer flex border-blue-600 rounded border-2">
+          <div id="imgContent"></div>
+          <label class="bg-blue-300 font-medium cursor-pointer w-full text-center" id="label">Choisir une image</label>
+          <input type="file" accept="image/*" name="imagepost" id="image_post" title="Choisir une image" id="file" class="text-tras outline-none opacity-0 cursor-pointer w-128 translate-x-0.001 absolute h-32 float" onchange="myFunction();">
         </div>
             <div class="flex justify-center">
-            <input type="submit" value="publier" name="btn_post" onclick="g();" class="bg-blue-500 py-1 px-4 mx-1 my-2 rounded-lg " />
-            <input type="button" value="Annuler" onclick="g();" class="bg-gray-200 h-fit py-1 px-4 mx-1 my-2 rounded-lg">
+            <input type="submit" value="publier" name="btn_post" onclick="g();" class="bg-blue-500 py-1 px-4 w-full mx-1 my-2 rounded-lg " />
+            <input type="button" value="Annuler" onclick="g();" class="bg-gray-200 h-fit py-1 px-4 mx-1 my-2 w-full rounded-lg">
             </div>
         </form>
         
@@ -45,18 +46,36 @@ if(isset($_POST["creatpost"])){
             const dialog = document.querySelector('.demo-dialog');
             dialog.close();
         }
-        function charge(){
+        function myFunction() {
+
+          var file = document.getElementById('image_post').files[0];
+          var reader  = new FileReader();
+          // it's onload event and you forgot (parameters)
+          reader.onload = function(e)  {
           let imgContent = document.querySelector('#imgContent');
-          let file = document.querySelector('#image_post');
-          let newImg = new Image();
-          newImg.src=file.value;
-          imgContent.appendChild(newImg);
+          let label = document.querySelector('#label');
+          let fileLabel = document.querySelector('#file');
+          var image = document.createElement("img");
+          // the result image data
+          image.src = e.target.result;
+          imgContent.innerHTML='';
+          imgContent.appendChild(image);
+          label.remove();
+          }
+          // you have to declare the file loading
+          reader.readAsDataURL(file);
         }
     </script>
 
-<style>
+<style> 
   input{
     cursor: pointer;
+  }
+  input:hover{
+    opacity:0.8;
+  }
+  input[type="file"]:hover{
+    opacity:0;
   }
 </style>
 
