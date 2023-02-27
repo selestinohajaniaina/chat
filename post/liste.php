@@ -7,12 +7,16 @@ $postSelect->execute();
 $fetch=$postSelect->fetchAll();
 $listeNbr = count($fetch);
 
-//list of all post include at <class=table>
+//list of all post 
+
+?>
+<div class="bg-red-900 flex flex-col items-center">
+<?php
 
 for($i=0;$i<$listeNbr;$i++){
     ?>
-<div class="bg-gray-300">
-    <div class="m-1 bg-gray-700 w-fit">
+<div class="bg-gray-900 w-fit m-1">
+    <div class="m-3 bg-gray-700 w-fit">
         <?php
             $post_id=$fetch[$i]["id_post"];
             $post_img=$fetch[$i]["photo"];
@@ -40,7 +44,7 @@ for($i=0;$i<$listeNbr;$i++){
 
             <!-- pdp + nom + prenom de proprietaire -->
 
-            <div class="th flex items-center bg-orange-300 w-fit">
+            <div class="p-2 flex items-center bg-orange-300 rounded-t-2xl">
                 <?php
 
                     if(empty($fetchpdp["photo"])){
@@ -64,23 +68,28 @@ for($i=0;$i<$listeNbr;$i++){
                 ?>
 
 
-            <div class="w-fit bg-lime-400">
+            <div class="w-fit">
+
                 <h5><?=$nameUserPost?></h5>
-            <span><?=$post_date?></span>
+
+                <span><?=$post_date?></span>
+
             </div>
+
             </div>
 
             <!-- image + legende du publication -->
             
-            <div class="td bg-red-400 ">
-            <p class="legende bg-green-300 w-fit"><?=$post_legende?></p>
-            <img src="../img/post/<?=$post_img?>" title="<?=$post_img?>" class="w-2/5" />
+            <div class="">
+            <p class="m-2 font-medium bg-green-300 w-fit"><?=$post_legende?></p>
+            <img src="../img/post/<?=$post_img?>" title="<?=$post_img?>" class="w-132 rounded" />
             
             </div>
     </div>
 </div>
+
 <?php
 }
-
-
 ?>
+
+</div>

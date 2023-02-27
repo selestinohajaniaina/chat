@@ -8,6 +8,9 @@ module.exports = {
       },
       spacing: {
         '128': '40rem',
+      },
+      width: {
+        '132': '32rem',
       }
     },
   },
