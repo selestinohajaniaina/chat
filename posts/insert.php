@@ -28,6 +28,11 @@ if(isset($_POST["btn_post"])){
 
         $extension=substr(strrchr($image_post,"."),1);
         $image_post=getRandomString().".".$extension;
+        
+        if(empty($_FILES["imagepost"]["name"])){
+                $image_post="";
+        }
+
         $upload="../img/post/".$image_post;
 
         //date now
@@ -36,7 +41,7 @@ if(isset($_POST["btn_post"])){
         $now = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($startTime)));
 
         //insert -> db , the post
-            
+
         $insertion = $db -> prepare("INSERT INTO post (idOwner, legend, photo, date) VALUES (:post_autor, :post_legende, :post_image, :post_date)");
         $insertion -> execute([
             "post_autor"=>$idUser,
@@ -53,7 +58,7 @@ if(isset($_POST["btn_post"])){
 
         // header("location:../post")
 
-    document.location.href = "../post";
+    document.location.href = "../posts";
 
 </script>
 

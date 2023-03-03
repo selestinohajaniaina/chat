@@ -1,30 +1,28 @@
 <?php
 
-//getting id_post
-
-
-$post_id=$_GET["id_post"];
-
 //selection de publication
 
-$postSelect = $db -> prepare("SELECT * FROM post WHERE id_post=:id_post");
-$postSelect->execute([
-    "id_post"=>$post_id,
-]);
-$fetch=$postSelect->fetch();
+$postSelect = $db -> prepare("SELECT * FROM post ORDER BY id_post DESC");
+$postSelect->execute();
+$fetch=$postSelect->fetchAll();
+$listeNbr = count($fetch);
 
 //list of all post 
 
 ?>
 <div class="bg-gray-50 flex flex-col items-center">
-<div class="bg-gray-100 rounded w-fit m-1 shadow-xl">
+<?php
+
+for($i=0;$i<$listeNbr;$i++){
+    ?>
+<div class="bg-gray-100 rounded w-fit mt-2 shadow-xl ">
     <div class="m-3 w-fit">
         <?php
-
-            $post_img=$fetch["photo"];
-            $post_legende=$fetch["legend"];
-            $post_id_auteur=$fetch["idOwner"];
-            $post_date=$fetch["date"];
+            $post_id=$fetch[$i]["id_post"];
+            $post_img=$fetch[$i]["photo"];
+            $post_legende=$fetch[$i]["legend"];
+            $post_id_auteur=$fetch[$i]["idOwner"];
+            $post_date=$fetch[$i]["date"];
 
             
             
@@ -53,7 +51,7 @@ $fetch=$postSelect->fetch();
 
                         ?>
 
-                            <div class="rounded-3xl  font-mono text-3xl bg-yellow-200 w-12 h-12 flex justify-center items-center border-solid border-4 border-gray-200"><?=strtoupper($nameUserPost[0])?></div>
+                            <div class="rounded-3xl font-mono text-3xl bg-yellow-200 w-12 h-12 flex justify-center items-center border-solid border-4 border-gray-200"><?=strtoupper($nameUserPost[0])?></div>
                             
                             <?php
 
@@ -90,8 +88,8 @@ $fetch=$postSelect->fetch();
                 if(empty($post_img)){
                     ?>
                     <div>
-                    <p class="p-2 bg-gray-100 text-3xl max-w-lg text-center"><?=$post_legende?></p>
-                    </div>
+            <p class="p-2 bg-gray-100 text-3xl max-w-lg text-center"><?=$post_legende?></p>
+            </div>
                     <?php
                 }else{
             ?>
@@ -101,17 +99,23 @@ $fetch=$postSelect->fetch();
             <div>
             <p class="p-2 bg-gray-100 font-medium max-w-lg text-justify"><?=$post_legende?></p>
             <div class="rounded overflow-hidden">
-            <img src="../img/post/<?=$post_img?>" title="<?=$post_img?>" class="w-132 cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" />
+            <img src="../img/post/<?=$post_img?>" id="post_<?=$post_id?>" title="<?=$post_img?>" class="w-132 cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" />
             </div>
             </div>
             <?php
                 }
             ?>
             <div class="bg-gray-200 flex items-center mt-2 font-medium rounded">
-                        <input type="text" name="comment" class="bg-gray-100 outline-none w-full rounded m-3" placeholder="Ecrir votre commentaire..." autofocus/>
-                        <input type="button" value="send" class=" pr-2 pl-2 mr-2 text-white rounded bg-blue-500 h-fit">
+                <div class="bg-slate-800">
+                <!-- <a href="../post?id_post=16" class="w-full" style="background:gray;width:100%">Ecrir votre commentaire...</a> -->
+                </div>
             </div>
     </div>
 </div>
+
+<?php
+require("href.php");
+}
+?>
 
 </div>

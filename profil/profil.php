@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$username.$idUser?></title>
     <link rel="stylesheet" href="../css/tailwind.css">
+    <link rel="stylesheet" href="../css/output.css">
 </head>
 <body>
   
@@ -92,7 +93,7 @@
       </div>
     </div>
     <footer class="relative bg-blueGray-200 pt-8 pb-6 mt-8">
-  <div class="container mx-auto px-4">
+  <!-- <div class="container mx-auto px-4">
     <div class="flex flex-wrap items-center md:justify-between justify-center">
       <div class="w-full md:w-6/12 px-4 mx-auto text-center">
         <div class="text-sm text-blueGray-500 font-semibold py-1">
@@ -100,7 +101,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <?php require("liste_post.php")?>
 </footer>
   </section>
 </main>

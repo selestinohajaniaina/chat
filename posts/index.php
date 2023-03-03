@@ -14,15 +14,17 @@ session_start();
 $idUser=$_SESSION["idUser"];
 /* $username=$_SESSION["username"];*/
 
-if(empty($idUser)||empty($_GET["id_post"])){
+if(empty($idUser)){
     header("location:../login/");
 }else{
     
     // including the created post
     
     require("post.php");
-    
+
 }
+
+
 
 
 ?>

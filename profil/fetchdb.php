@@ -1,6 +1,10 @@
 <?php
 
-$id_profile=$idUser;
+if(empty($_GET["idUser"])){
+    $id_profile=$idUser;
+}else{
+    $id_profile=$_GET["idUser"];
+}
 
 //pselecting to db and count if it exist
 
