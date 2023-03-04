@@ -43,6 +43,5 @@ if($nbrExist>0){
     <?php
 
 }
-// $fetch=$select->
-// header("location:../chat/chat.php")
+
 ?>
