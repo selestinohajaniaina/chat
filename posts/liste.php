@@ -53,7 +53,7 @@ for($i=0;$i<$listeNbr;$i++){
 
                         ?>
 
-                            <div class="rounded-3xl font-mono text-3xl bg-yellow-200 w-12 h-12 flex justify-center items-center border-solid border-4 border-gray-200"><?=strtoupper($nameUserPost[0])?></div>
+                            <div class="rounded-3xl font-bold text-3xl text-slate-700 bg-yellow-200 w-12 h-12 flex justify-center items-center border-solid border-4 border-gray-200"><?=strtoupper($nameUserPost[0])?></div>
                             
                             <?php
 
@@ -111,12 +111,13 @@ for($i=0;$i<$listeNbr;$i++){
                 <!-- like + comment + share -->
 
             <div class="bg-gray-200 flex justify-around mt-2 font-medium rounded">
-                <div class="bg-slate-300 w-full flex justify-center items-center cursor-pointer rounded-3xl hover:opacity-80 m-[6px]">
+                <div class="bg-slate-300 w-full flex justify-center items-center cursor-pointer rounded-3xl hover:opacity-80 m-[6px] overflow-hidden">
                     <!-- like boutton -->
-                    <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 9.40652C3.44772 9.40652 3 9.85424 3 10.4065V18.4065C3 20.0634 4.34315 21.4065 6 21.4065H9V9.40652H4Z" fill="#152C70"></path> <path d="M14.3059 4.16184C13.9067 2.9643 12.3868 2.60551 11.4942 3.4981L7.87868 7.11364C7.31607 7.67624 7 8.43931 7 9.23495V20.4065C7 20.9588 7.44772 21.4065 8 21.4065H15.6812C16.8813 21.4065 17.9659 20.6913 18.4386 19.5883L20.7574 14.1778C20.9175 13.8043 21 13.4023 21 12.996V12.4065C21 10.7497 19.6569 9.40653 18 9.40653H14.2808L14.4771 8.62115C14.8452 7.14867 14.7858 5.60175 14.3059 4.16184Z" fill="#4296FF"></path> </g></svg>
-                    <form method="get">
-                        input
-                    </form>
+                    <a href="../post?id_post=<?=$post_id?>" class="w-full flex justify-center relative">
+                    <?php
+                    require("like_page.php")
+                    ?>                    
+                    </a>
                 </div>
 
                 <div class="bg-slate-300 w-full flex justify-center items-center overflow-hidden cursor-pointer rounded-3xl hover:opacity-80 m-[6px]">
@@ -138,7 +139,6 @@ for($i=0;$i<$listeNbr;$i++){
 </div>
 
 <?php
-// require("href.php");
 }
 ?>
 

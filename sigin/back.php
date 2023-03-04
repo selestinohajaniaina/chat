@@ -18,7 +18,5 @@ require('../db.php');
     $_SESSION["idUser"]=$dbId;
     $_SESSION["username"]=$username;
     header("location:../chat");
-
-// $fetch=$select->
-// header("location:../chat/chat.php")
+    
 ?>

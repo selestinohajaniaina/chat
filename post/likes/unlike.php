@@ -6,5 +6,5 @@
     ]);
 ?>
 <script>
-    document.location.href="../post?id_post=<?=$post_id?>";
+    document.location.href="../../post?id_post=<?=$post_id?>";
 </script>
