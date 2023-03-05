@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 05 mars 2023 à 10:37
+-- Généré le :  Dim 05 mars 2023 à 15:31
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `texte` varchar(1000) DEFAULT NULL,
   `date_coms` datetime DEFAULT NULL,
   PRIMARY KEY (`id_coms`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `comment`
@@ -46,7 +46,8 @@ INSERT INTO `comment` (`id_coms`, `id_post`, `idUser`, `texte`, `date_coms`) VAL
 (4, '19', '15', 'Bon logo pour ift', '2023-03-05 09:54:56'),
 (3, '19', '16', 'bonjour ift mahajanga', '2023-03-05 09:51:09'),
 (5, '19', '15', 'oui oui', '2023-03-05 09:57:15'),
-(6, '35', '15', 'good', '2023-03-05 13:34:32');
+(6, '35', '15', 'good', '2023-03-05 13:34:32'),
+(7, '33', '15', 'Merveilleux ðŸ¤©ðŸ¤©ðŸ¤©', '2023-03-05 17:23:51');
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `likepost` (
   `id_post` varchar(255) NOT NULL,
   `idUser` varchar(255) NOT NULL,
   PRIMARY KEY (`idLike`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `likepost`
@@ -73,7 +74,8 @@ INSERT INTO `likepost` (`idLike`, `id_post`, `idUser`) VALUES
 (36, '22', '16'),
 (33, '20', '16'),
 (39, '14', '16'),
-(44, '35', '15');
+(44, '35', '15'),
+(45, '33', '15');
 
 -- --------------------------------------------------------
 

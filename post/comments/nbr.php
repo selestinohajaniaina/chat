@@ -2,7 +2,7 @@
 
     // get all comments in db
 
-    $selectPost = $db -> prepare("SELECT * FROM comment WHERE id_post=$post_id");
+    $selectPost = $db -> prepare("SELECT * FROM comment WHERE id_post=$post_id ORDER BY id_coms DESC");
     $selectPost -> execute();
     $fetchPost=$selectPost->fetchAll();
     $nbrPost = count($fetchPost);
