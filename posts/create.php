@@ -49,21 +49,34 @@ if(isset($_POST["creatpost"])){
         function myFunction() {
 
           var file = document.getElementById('image_post').files[0];
-          var reader  = new FileReader();
-          // it's onload event and you forgot (parameters)
-          reader.onload = function(e)  {
+          var size = document.getElementById('image_post').files[0].size;
           let imgContent = document.querySelector('#imgContent');
           let label = document.querySelector('#label');
-          let fileLabel = document.querySelector('#file');
-          var image = document.createElement("img");
-          // the result image data
-          image.src = e.target.result;
-          imgContent.innerHTML='';
-          imgContent.appendChild(image);
-          label.remove();
+          console.log(size);
+
+          //si la taill est gros
+          if(size<2000000){
+            var reader  = new FileReader();
+            // it's onload event and you forgot (parameters)
+            reader.onload = function(e)  {
+            var image = document.createElement("img");
+            // the result image data
+            image.src = e.target.result;
+            imgContent.innerHTML='';
+            imgContent.appendChild(image);
+            label.remove();
+            }
+            // you have to declare the file loading
+            reader.readAsDataURL(file);
+
+          }else{
+            newSize = size/1000000;
+            newSize = newSize.toFixed(2);
+            label.innerHTML = `${newSize}Mo > 2Mo, choisir une autre image`;
+            label.setAttribute('class','bg-red-300  font-medium cursor-pointer w-full text-center');
+            document.getElementById('image_post').value=null;
           }
-          // you have to declare the file loading
-          reader.readAsDataURL(file);
+
         }
     </script>
 

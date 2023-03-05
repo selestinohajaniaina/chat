@@ -14,15 +14,27 @@
             $textComment = $_POST["comment"];
 
             //date now
-            $startTime = date("d-m-Y H:i:s");
+            $startTime = date("Y-m-d H:i:s");
             //add 3 hour to time
-            $now = date('d-m-Y H:i:s',strtotime('+3 hour',strtotime($startTime)));
+            $now = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($startTime)));
             
             //insering comments into db
-            $insertComs = $db -> prepare("INSERT INTO comment( `id_post`, `idUser`, `texte`, `date_coms`) VALUES (?, ?, ?, ?)");
-            $insertComs -> execute([$post_id,$idUser,$textComment,$now]);
+            $insertComs = $db -> prepare("INSERT INTO comment(id_post, idUser, texte, date_coms) VALUES (:post_id, :user_id, :coms_text, :coms_date)");
+            $insertComs -> execute([
+                "post_id"=>$post_id,
+                "user_id"=>$idUser,
+                "coms_text"=>$textComment,
+                "coms_date"=>$now
+            ]);
 
-            echo $now."<br>".$post_id."<br>".$idUser."<br>".$textComment;
+            // actualiser la page apres l'envoi
+
+            ?>
+            <script>
+                document.location.href="../post?id_post=<?=$post_id?>";
+            </script>
+            <?php
+
         }
     }
     

@@ -17,8 +17,8 @@ $listeNbr = count($fetch);
 
 for($i=0;$i<$listeNbr;$i++){
     ?>
-<div class="bg-gray-100 rounded w-fit mt-2 shadow-xl ">
-    <div class="m-3 w-fit">
+<div class="bg-gray-100 rounded w-fit mt-2 shadow-xl relative">
+    <div class="m-3 w-fit relative">
         <?php
             $post_id=$fetch[$i]["id_post"];
             $post_img=$fetch[$i]["photo"];
@@ -99,8 +99,8 @@ for($i=0;$i<$listeNbr;$i++){
             <!-- image + legende du publication -->
             
             <div>
-            <p class="p-2 bg-gray-100 font-medium max-w-lg text-justify"><?=$post_legende?></p>
-            <div class="rounded overflow-hidden">
+            <p class="p-2 bg-gray-100 relative font-medium max-w-lg text-justify"><?=$post_legende?></p>
+            <div class="rounded w-132  overflow-hidden">
             <img src="../img/post/<?=$post_img?>"  title="<?=$post_img?>" class="w-132 cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" />
             </div>
             </div>
@@ -120,8 +120,11 @@ for($i=0;$i<$listeNbr;$i++){
                     </a>
                 </div>
 
-                <div class="bg-slate-300 w-full flex justify-center items-center overflow-hidden cursor-pointer rounded-3xl hover:opacity-80 m-[6px]">
+                <div class="bg-slate-300 w-full relative flex justify-center items-center overflow-hidden cursor-pointer rounded-3xl hover:opacity-80 m-[6px]">
                     <!-- comment boutton -->
+                    <?php
+                        require('../post/comments/nbr.php');
+                    ?>
                     <a href="../post?id_post=<?=$post_id?>" class="w-full flex justify-center">
                     <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.20713 15.7929C4.95238 15.5382 4.58029 15.4401 4.23309 15.5363C3.88589 15.6325 3.61726 15.908 3.52988 16.2575L2.52988 20.2575C2.44468 20.5983 2.54453 20.9587 2.79291 21.2071C3.04129 21.4555 3.40178 21.5554 3.74256 21.4702L7.74256 20.4702C8.09207 20.3828 8.36757 20.1142 8.46374 19.767C8.5599 19.4198 8.46188 19.0477 8.20713 18.7929L5.20713 15.7929Z" fill="#152C70"></path> <path d="M12 2.5C6.75329 2.5 2.5 6.75329 2.5 12C2.5 17.2467 6.75329 21.5 12 21.5C17.2467 21.5 21.5 17.2467 21.5 12C21.5 6.75329 17.2467 2.5 12 2.5Z" fill="#4296FF"></path> <path d="M9 12C9 12.8284 8.32843 13.5 7.5 13.5C6.67157 13.5 6 12.8284 6 12C6 11.1716 6.67157 10.5 7.5 10.5C8.32843 10.5 9 11.1716 9 12Z" fill="#152C70"></path> <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" fill="#152C70"></path> <path d="M18 12C18 12.8284 17.3284 13.5 16.5 13.5C15.6716 13.5 15 12.8284 15 12C15 11.1716 15.6716 10.5 16.5 10.5C17.3284 10.5 18 11.1716 18 12Z" fill="#152C70"></path> </g></svg>
 

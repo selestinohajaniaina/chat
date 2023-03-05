@@ -40,6 +40,8 @@ if(isset($_POST["btn_post"])){
         //add 3 hour to time
         $now = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($startTime)));
 
+        move_uploaded_file($_FILES["imagepost"]["tmp_name"],$upload);
+
         //insert -> db , the post
 
         $insertion = $db -> prepare("INSERT INTO post (idOwner, legend, photo, date) VALUES (:post_autor, :post_legende, :post_image, :post_date)");
@@ -50,8 +52,6 @@ if(isset($_POST["btn_post"])){
             "post_date"=>$now
         ]);
         
-        move_uploaded_file($_FILES["imagepost"]["tmp_name"],$upload);
-
         ?>
 
 <script>
