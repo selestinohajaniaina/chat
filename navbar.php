@@ -1,3 +1,14 @@
+<?php
+  $select_photo = $db -> prepare("SELECT * FROM pdp WHERE idUser=$idUser");
+  $select_photo -> execute();
+  $fetch_photo = $select_photo -> fetch();
+
+  $select_name = $db -> prepare("SELECT * FROM user WHERE idUser=$idUser");
+  $select_name -> execute();
+  $fetch_name = $select_name -> fetch();
+  $symbole = $fetch_name["username"];
+?>
+
 <nav class="bg-gray-800 fixed w-full shadow-lg z-10">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="relative flex h-16 items-center justify-between">
@@ -28,13 +39,13 @@
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                  <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Accueil</a>
+                  <a href="../accueil" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" id="Accueil">Accueil</a>
       
-                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Message</a>
+                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" id="Message">Message</a>
       
-                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Jeux</a>
+                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" id="Jeux">Jeux</a>
       
-                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Actualité</a>
+                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" id="Actualite">Actualité</a>
                 </div>
               </div>
             </div>
@@ -51,7 +62,27 @@
                 <div>
                   <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                     <span class="sr-only">Open user menu</span>
-                    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                    <?php
+
+                    if(empty($fetch_photo["photo"])){
+
+                        ?>
+
+                            <div class="h-8 w-8 rounded-full font-bold text-2xl text-slate-700 bg-yellow-200 flex justify-center items-center"><?=strtoupper($symbole[0])?></div>
+                            
+                            <?php
+
+                    }else{
+
+                            $_photo = $fetch_photo["photo"];
+
+                        ?>
+
+                            <img src="../img/profil/<?=$_photo?>" class="h-8 w-8 rounded-full" />
+
+                        <?php
+                    }
+                ?>
                   </button>
                 </div>
       
@@ -80,7 +111,7 @@
         </div>
       </nav>
       <script>
-        let btn_img_profile = document.querySelector('#user-menu-button');
+        let btn_img_profile = document.querySelector('#user-menu-button'); 
         let fam_img = document.querySelector('#fam-img');
         let btn_menu = document.querySelector('#btn_menu');
         let mobile_menu = document.querySelector('#mobile-menu');
@@ -92,20 +123,20 @@
         info_profil = `
         <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
             <!-- Active: "bg-gray-100", Not Active: "" -->
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+            <a href="../profil" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Parametre</a>
+                  <a href="../disconnect/disconnect.php" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Deconnexion</a>
                   </div>
                   `;
 
         sous_menu = `
-        <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Accueil</a>
+        <a href="../accueil" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" id="Accueil">Accueil</a>
       
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Message</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" id="Message">Message</a>
 
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Jeux</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" id="Jeux">Jeux</a>
 
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Actualité</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" id="Actualité">Actualité</a>
         `;
 
         bar = `

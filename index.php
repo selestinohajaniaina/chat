@@ -1,8 +1,9 @@
 <?php
 session_start();
-if(empty($_SESSION["username"])){
+if(empty($_SESSION["idUser"])){
     header("location:login");
 }else{
-    header("location:chat");
+    header("location:accueil");
+    
 }
 ?>

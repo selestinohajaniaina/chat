@@ -3,6 +3,7 @@
     $selectf -> execute();
     $isHave = count($selectf -> fetchAll());
 
+    require("message.php");
     if($isHave>0){
         require("unfollow.php");
     }else{

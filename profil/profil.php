@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$username.$idUser?></title>
+    <title><?=$username?></title>
     <link rel="stylesheet" href="../css/tailwind.css">
     <link rel="stylesheet" href="../css/output.css">
 </head>
@@ -37,10 +37,8 @@
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
               <div class="py-6 px-3 mt-32 sm:mt-0 flex justify-between">
-              <button type="submit" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
-                  Message
-                </button>
-                <?php if(!empty($_GET["idUser"])&&$_GET["idUser"]!=$idUser) require('follows/bouton.php')?>
+              
+                <?php if(!empty($_GET["idUser"])&&$_GET["idUser"]!=$idUser) require('follows/bouton.php'); else require('follows/edit.php');?>
               </div>
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-1">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!empty($_SESSION["idUser"])){
-    header("location:../chat");
+    header("location:../accueil");
   }
 require('sigin.php');
 ?>

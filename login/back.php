@@ -22,7 +22,7 @@ if($nbrExist>0){
         if((password_verify($dbPassword,$password))){
             $_SESSION["idUser"]=$dbId;
             // $_SESSION["username"]=$username;
-            header("location:../chat");
+            header("location:../accueil");
         }else{
             ?>
                 <script>
