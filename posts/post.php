@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-
+    require('../navbar.php');
     require("liste.php");
     require("create.php");
 

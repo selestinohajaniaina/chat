@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../css/output.css">
 </head>
 <body>
-  
+
+<?php require('../navbar.php')?>
 
 <main class="profile-page">
   <section class="relative block h-500-px">
@@ -35,22 +36,43 @@
               </div>
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
-              <div class="py-6 px-3 mt-32 sm:mt-0">
-                <button class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+              <div class="py-6 px-3 mt-32 sm:mt-0 flex justify-between">
+              <button type="submit" class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
                   Message
                 </button>
+                <?php if(!empty($_GET["idUser"])&&$_GET["idUser"]!=$idUser) require('follows/bouton.php')?>
               </div>
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-1">
               <div class="flex justify-center py-4 lg:pt-4 pt-8">
                 <div class="mr-4 p-3 text-center">
-                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">22</span><span class="text-sm text-blueGray-400">Friends</span>
+                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                    <?php
+                      $select_nbr = $db -> prepare("SELECT * FROM followers WHERE (idOwner=$id_profile)");
+                      $select_nbr -> execute();
+                      $nbrFollow = count($select_nbr -> fetchAll());
+                      echo $nbrFollow;
+                    ?>
+                  </span><span class="text-sm text-blueGray-400">Suivie(s)</span>
                 </div>
                 <div class="mr-4 p-3 text-center">
                   <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">10</span><span class="text-sm text-blueGray-400">Photos</span>
                 </div>
                 <div class="lg:mr-4 p-3 text-center">
-                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">89</span><span class="text-sm text-blueGray-400">Comments</span>
+                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                    <?php
+
+                      //selection de publication
+
+                      $postSelect = $db -> prepare("SELECT * FROM post WHERE idOwner=:idUser ORDER BY id_post DESC");
+                      $postSelect->execute([
+                          "idUser"=>$id_profile,
+                      ]);
+                      $fetch=$postSelect->fetchAll();
+                      $listeNbr = count($fetch);
+                      echo $listeNbr;
+                    ?>
+                  </span><span class="text-sm text-blueGray-400">Publication(s)</span>
                 </div>
               </div>
             </div>
@@ -60,8 +82,6 @@
               <?=$username?>
             </h3>
             <div class="flex justify-center text-sm leading-normal mt-5 mb-2 text-blueGray-400 lowerercase">
-              <!-- <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i> -->
-              <!-- <i class="fa fa-envelope" style='color:#94a3b8;transform:scale(1.2)'></i> -->
               <svg width="24" viewBox="0 0 24 24" fill="#94a3b8" >
                 <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"></path>
               </svg>
@@ -93,15 +113,6 @@
       </div>
     </div>
     <footer class="relative bg-blueGray-200 pt-8 pb-6 mt-8">
-  <!-- <div class="container mx-auto px-4">
-    <div class="flex flex-wrap items-center md:justify-between justify-center">
-      <div class="w-full md:w-6/12 px-4 mx-auto text-center">
-        <div class="text-sm text-blueGray-500 font-semibold py-1">
-          Made with <a href="https://www.creative-tim.com/product/notus-js" class="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" class="text-blueGray-500 hover:text-blueGray-800" target="_blank"> Creative Tim</a>.
-        </div>
-      </div>
-    </div>
-  </div> -->
   <?php require("liste_post.php")?>
 </footer>
   </section>

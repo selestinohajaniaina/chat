@@ -100,7 +100,7 @@ for($i=0;$i<$listeNbr;$i++){
             
             <div>
             <p class="p-2 bg-gray-100 relative font-medium max-w-lg text-justify"><?=$post_legende?></p>
-            <div class="rounded w-132  overflow-hidden">
+            <div class="rounded sm:w-132  overflow-hidden">
             <img src="../img/post/<?=$post_img?>"  title="<?=$post_img?>" class="w-132 cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" />
             </div>
             </div>

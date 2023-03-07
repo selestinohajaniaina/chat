@@ -35,7 +35,7 @@ for ($i = 0; $i < $nbrPost; $i++) {
     // else
     // $pdp = $pdpFetch['photo'];
     ?>
-    <div class="m-3 bg-gray-100 flex sm:w-[25rem] rounded">
+    <div class="m-3 bg-gray-100 flex sm:w-[400px] w-[70%] rounded">
         <div class="m-1">
             <?php if (empty($pdpFetch['photo'])) { ?>
                 <div class="rounded-3xl  font-mono font-bold text-3xl text-slate-700 bg-yellow-200 w-12 h-12 flex justify-center items-center border-solid border-4 border-gray-200">

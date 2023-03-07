@@ -10,6 +10,6 @@ $idUser=$_SESSION["idUser"];
 if(empty($idUser)){
     header("location:../login/");
 }else{
-    require('chat.php');
+    require('../posts/post.php');
 }
 ?>
