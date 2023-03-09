@@ -11,7 +11,7 @@ if(isset($_POST["follow"])){
     // header("location:profil?idUser=$id_profile");
     ?>
     <script>
-        document.location.href ="profil?idUser=<?=$id_profile?>";
+        document.location.href ="../profil?idUser=<?=$id_profile?>";
     </script>
     <?php
 }

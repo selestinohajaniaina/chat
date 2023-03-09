@@ -60,7 +60,7 @@ if(isset($_POST["btn_post"])){
 
         // header("location:../post")
 
-    document.location.href = "../posts";
+    document.location.href = "../";
 
 </script>
 

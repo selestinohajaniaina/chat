@@ -12,7 +12,7 @@ if(isset($_POST["unfollow"])){
     // header("location:profil?idUser=$id_profile");
     ?>
     <script>
-        document.location.href ="profil?idUser=<?=$id_profile?>";
+        document.location.href ="../profil?idUser=<?=$id_profile?>";
     </script>
     <?php
 }
