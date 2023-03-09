@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #1d1a1a;
+  color: aliceblue;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.contener {
+  display: flex;
+  justify-content: center;
+}
+.par {
+  border: #fff solid 1px;
+  margin: 3%;
+  padding: 20px;
+  width: 50%;
+}
+#wait {
+  font-family: cooper;
+  font-size: 15pt;
+  color: #c2c2c2;
+  animation: anim 1s linear infinite;
+}
+@keyframes anim {
+  50% {
+    opacity: 0;
+  }
+}
+.btn {
+  margin: 0; 
+  display: flex;
+  justify-content: center;
+}
+.btn .button {
+  background: #f99a00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 60px;
+  font-size: 20pt;
+  font-weight: bold;
+  font-family: cooper;
+  color: #fff;
+  border: #fff solid 0.1em;
+  box-shadow: 0px 0px 10px 1px #717171;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+.btn .button:active {
+  transform: scale(1.05);
+}
+.can {
+  border: #c2c2c2 solid 1px;
+  width: 98%;
+  height: 30%;
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  overflow: hidden;
+}
+@keyframes asc {
+  from {
+    right: 0;
+  }
+  to {
+    right: 100%;
+  }
+}
+.per {
+  position: absolute;
+  bottom: 0;
+  width: 30px;
+  height: 50px;
+  background-image: url("../img/ju.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  left: 5%;
+}

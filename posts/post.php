@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <link rel="stylesheet" href="../css/output.css">
+    <link rel="shortcut icon" href="../img/icon.png" type="image">
     <style>
         #Accueil{
             background-color: rgb(17 24 39);
@@ -15,6 +16,7 @@
 <body>
     <?php
     require('../navbar.php');
+    require('../side/sidebar.php');
     require("liste.php");
     require("create.php");
 

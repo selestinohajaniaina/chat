@@ -8,6 +8,11 @@
 if(isset($_POST["follow"])){
     $insert = $db -> prepare("insert into followers (idOwner, idFollow) values (?,?)");
     $insert -> execute([$id_profile,$idUser]);
-    header("location:profil?idUser=$id_profile");
+    // header("location:profil?idUser=$id_profile");
+    ?>
+    <script>
+        document.location.href ="profil?idUser=<?=$id_profile?>";
+    </script>
+    <?php
 }
 ?>

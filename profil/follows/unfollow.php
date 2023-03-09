@@ -9,6 +9,11 @@
 if(isset($_POST["unfollow"])){
     $delete = $db -> prepare("DELETE FROM followers WHERE (idOwner=$id_profile AND idFollow=$idUser)");
     $delete -> execute();
-    header("location:profil?idUser=$id_profile");
+    // header("location:profil?idUser=$id_profile");
+    ?>
+    <script>
+        document.location.href ="profil?idUser=<?=$id_profile?>";
+    </script>
+    <?php
 }
 ?>

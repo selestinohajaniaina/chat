@@ -15,6 +15,8 @@ if(isset($_POST["btn_post"])){
                         <script>
                                 // alerting if all input are empty
                                 alert("Vous devez ajouter au moin le text a votre publication.");
+                                // let err = document.querySelector("#err");
+                                // err.innerHTML="Vous devez ajouter au moin le text a votre publication.";
                         </script>
 
                 <?php

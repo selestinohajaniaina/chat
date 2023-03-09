@@ -1,0 +1,69 @@
+body {
+  background: #575252;
+  text-shadow: 0px 0px 10px #ffffff;
+}
+.title h1{
+  color: #fff;
+  width: fit-content;
+  padding: 2px 20px;
+  border: #fff solid 1px;
+  border-radius: 4px;
+}
+.icon p {
+  width: fit-content;
+  /* position: fixed; */
+}
+.contener {
+  border: 1px solid red;
+  width: fit-content;
+  margin: 10px auto;
+}
+table tr {
+  background: #65710b;
+  text-align: center;
+}
+table #plus {
+  animation: anim 0.5s linear;
+}
+table #rong {
+  animation: anim1 0.5s linear;
+}
+@keyframes anim {
+  from {
+    transform: rotateZ(45deg) scale(2);
+    opacity: 0;
+  }
+  to {
+    transform: rotateZ(45deg) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes anim1 {
+  from {
+    transform: scale(2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.case {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: #bad10d solid 5px;
+  box-shadow: 0px 0px 10px 10px #d5ff72;
+}
+p {
+  font-size: 70pt;
+  font-family: cooper;
+  transform: rotateZ(45deg);
+  padding: 0;
+  margin: 0;
+  cursor: default;
+}
+.description h5{
+  color: #fff;
+}
