@@ -275,4 +275,5 @@ let _APP = null;
 
 window.addEventListener('DOMContentLoaded', () => {
   _APP = new BasicWorldDemo();
+  console.log('ready');
 });

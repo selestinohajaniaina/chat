@@ -15,9 +15,31 @@
 <body>
 <?php
     require('../navbar.php');
+    require('../side/sidebar.php');
 ?>
-<a href="./games/mario/" target="_blank" rel="noopener noreferrer">Super Mario</a>
-<a href="./games/soldier/src/" target="_blank" rel="noopener noreferrer">Soldier</a>
-<a href="./games/tictac/" target="_blank" rel="noopener noreferrer">Tictactoe</a>
+<div class="profile-page sm:absolute sm:right-0 sm:w-[80%] w-full flex flex-wrap p-4 font-bold">
+
+    <a href="./mario/" target="_blank" class="m-2">
+        <div class="bg-red-500 relative w-fit rounded-[10px] shadow-lg overflow-hidden transition-all hover:-translate-y-2">
+            <p class="w-full text-center p-2 absolute bottom-0 bg-gray-50 opacity-70">Super Mario</p>
+            <img src="img/mario.jpg"  />
+        </div>
+    </a>
+
+    <a href="./dino/" target="_blank" class="m-2">
+        <div class="bg-red-500 relative w-fit rounded-[10px] shadow-lg overflow-hidden transition-all hover:-translate-y-2">
+            <p class="w-full text-center p-2 absolute bottom-0 bg-gray-50 opacity-70">Dinosaure Jump</p>
+            <img src="img/dino.jpg"  />
+        </div>
+    </a>
+
+    <a href="./tictac/" target="_blank" class="m-2">
+        <div class="bg-red-500 relative w-fit rounded-[10px] shadow-lg overflow-hidden transition-all hover:-translate-y-2">
+            <p class="w-full text-center p-2 absolute bottom-0 bg-gray-50 opacity-70">Tictactoe toogle</p>
+            <img src="img/tictac.jpg"  />
+        </div>
+    </a>
+    
+</div>
 </body>
 </html>

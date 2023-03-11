@@ -10,6 +10,7 @@
 <body>
     <?php
     require('../navbar.php');
+    require('../side/sidebar.php');
     require("liste.php");
 
     ?>

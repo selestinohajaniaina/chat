@@ -16,7 +16,7 @@ $fetch=$postSelect->fetch();
 //list of all post 
 
 ?>
-<div class="bg-gray-50 flex flex-col items-center">
+<div class="bg-gray-50 flex flex-col items-center sm:w-[80%] sm:absolute sm:right-0">
 <div class="bg-gray-100 rounded w-fit m-1 shadow-xl">
     <div class="m-3 w-fit">
         <?php

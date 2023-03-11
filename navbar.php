@@ -45,7 +45,7 @@
       
                   <a href="../games" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" id="Jeux">Jeux</a>
       
-                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" id="Actualite">Actualité</a>
+                  <a href="../news" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" id="Actualite">Actualité</a>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
       
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="sm:hidden">
-          <div class="space-y-1 px-2 pt-2 pb-3" id="mobile-menu">
+          <div class="space-y-1 px-2 py-1" id="mobile-menu">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             
           </div>
@@ -136,7 +136,7 @@
 
       <a href="../games" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" id="Jeux">Jeux</a>
 
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" id="Actualité">Actualité</a>
+      <a href="../news" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" id="Actualité">Actualité</a>
         `;
 
         bar = `

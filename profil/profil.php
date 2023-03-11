@@ -11,9 +11,14 @@
 </head>
 <body>
 
-<?php require('../navbar.php')?>
+<?php 
+require('../navbar.php');
+require('../side/sidebar.php');
+?>
 
-<main class="profile-page">
+
+
+<main class="profile-page sm:absolute sm:right-0 sm:w-[80%] w-full">
   <section class="relative block h-500-px">
     <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
             background-image: url('../img/covert/<?=$pdc?>');

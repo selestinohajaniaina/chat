@@ -7,26 +7,46 @@ $(".acs").css({
   bottom: 0,
   width: "30px",
   height: "50px",
-  background: "#d55555",
+  backgroundImage: "url('src/img/cactus.png')",
+  backgroundSize:"contain",
+  backgroundRepeat:"no-repeat",
   animation: "asc 3s linear infinite",
   right: "0",
   animationPlayState: "paused",
 });
 $(".button").click(() => {
   plaing = plaing ? false : true;
-  setInterval(alive, 10);
   if (plaing) {
+    setInterval(alive, 10);
     $(".button").text("PAUSE");
     $(".acs").css({
       animationPlayState: "running",
     });
+
+    $(".back").css({
+      animation: "bouge 7s linear infinite",
+    });
+    $(".back1").css({
+      animation: "bouge1 7s linear infinite",
+    });
+
     change(0, "ru.gif");
+
   } else {
+
     $(".button").text("PLAY");
     $(".acs").css({
       animationPlayState: "paused",
     });
+    $(".back").css({
+      animation: "none",
+    });
+    $(".back1").css({
+      animation: "none",
+    });
+
     change(0, "ju.png");
+
   }
 });
 
@@ -61,17 +81,21 @@ function change(down, img) {
 }
 
 var alive = setInterval(() => {
+
   let perMaxTop = parseInt(
     window.getComputedStyle(person).getPropertyValue("top")
   );
+
   let ascLeft = parseInt(
     window.getComputedStyle(accident).getPropertyValue("left")
   );
-  console.log(`top : ${perMaxTop}    ac : ${ascLeft}`)
-  if (ascLeft < 70 && ascLeft > 22 && perMaxTop > 145) {
+
+  console.log(`top : ${perMaxTop}    ac : ${ascLeft}`);
+
+  if ( ascLeft <= 70 && ascLeft >= 40 && perMaxTop >= 90) {
     clearInterval(alive);
     console.log(`accident left ${ascLeft} `);
-
+    
     $(".button").text("REPLAY");
     $(".acs").css({
       animationPlayState: "paused",
@@ -81,5 +105,27 @@ var alive = setInterval(() => {
     plaing = false;
     word += "Oh sorry, you lose! <br>";
     $("p").html(word);
+    
+    var odv = document.createElement("dialog");
+    odv.innerHTML=("GAME OVER");
+    document.body.append(odv);
+    odv.showModal();
+    $("dialog").css({
+      position:"fixed",
+      color:"white",
+      background:"transparent",
+      top:"45%",
+      left:"35%",
+      fontSize:"72pt"
+    })
+
+    $(".back").css({
+      animation: "none",
+    });
+    $(".back1").css({
+      animation: "none",
+    });
+
+
   }
 }, 10);

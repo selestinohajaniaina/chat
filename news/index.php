@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="news/fetch.js" defer></script>
-</head>
-<body>
-    123
-</body>
-</html>
+<?php
+
+//calling db
+
+require('../db.php');
+
+
+//calling session
+
+session_start();
+
+// getting session variable
+
+$idUser=$_SESSION["idUser"];
+/* $username=$_SESSION["username"];*/
+
+if(empty($idUser)){
+    header("location:../login/");
+}else{
+    
+    // including the created post
+    
+    require("news.php");
+    
+}
+
+
+?>

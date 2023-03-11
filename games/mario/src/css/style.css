@@ -57,11 +57,48 @@ body {
 .can {
   border: #c2c2c2 solid 1px;
   width: 98%;
-  height: 30%;
+  height: 35%;
   position: absolute;
   bottom: 0;
   margin: 10px;
   overflow: hidden;
+}
+.back{
+  background-image: url('../img/foret.jpg');
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 100%;
+  /* animation: bouge 7s linear infinite; */
+}
+.back1{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: translateX(100%);
+  background-image: url('../img/foret.jpg');
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 100%;
+  /* animation: bouge1 7s linear infinite; */
+}
+.back_par{
+  display: flex;
+}
+@keyframes bouge {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes bouge1 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 @keyframes asc {
   from {

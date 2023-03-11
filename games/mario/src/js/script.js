@@ -1,10 +1,7 @@
 let content = $("p").text();
 
 let text = `
-Welcome to this litle jumper Game. Let's share our fun :) 
-use your space key to jump!
-use this yellow button to play the Game.<br>
-<br> GO<br>
+Bienvenue dans Super Mario jumper, cliquer sur play pour commencer et espace pour sauter.
         `;
 let nbr = text.length;
 var newText = "";
