@@ -37,7 +37,7 @@
          <hr class="my-2">
       <ul class="space-y-2">
          <li>
-            <a href="../profil" class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700">
+            <a href="../profil" class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700" id="username">
                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                <span class="flex-1 ml-3 whitespace-nowrap"><?=$_me_name?></span>
             </a>
@@ -53,7 +53,7 @@
          </li>
 
          <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal rounded-lg text-white  hover:bg-gray-700">
+            <a href="../followers" class="flex items-center p-2 text-base font-normal rounded-lg text-white  hover:bg-gray-700" id="suivie">
                <div class="relative">
                   <svg class="flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="3" stroke="#9ca3af" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><circle cx="22.83" cy="22.57" r="7.51"></circle><path d="M38,49.94a15.2,15.2,0,0,0-15.21-15.2h0a15.2,15.2,0,0,0-15.2,15.2Z"></path><circle cx="44.13" cy="27.22" r="6.05"></circle><path d="M42.4,49.94h14A12.24,12.24,0,0,0,44.13,37.7h0a12.21,12.21,0,0,0-5.75,1.43"></path></g></svg>
                      <span class="absolute bg-red-500 text-[7pt] font-medium rounded-full flex justify-center items-center w-4 h-4 top-0 -right-2"><?=$nbr_f?></span>
@@ -63,7 +63,7 @@
          </li>
          
          <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700">
+            <a href="../posts" class="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700" id="publication">
             <div class="relative">
                <svg class="flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white" viewBox="0 0 32 32" enable-background="new 0 0 32 32" id="Stock_cut" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#9ca3af"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <desc></desc> <g> <path d="M27,5V3H1v26 c0,1.105,0.895,2,2,2h26c1.105,0,2-0.895,2-2V5H27z" fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></path> <rect fill="none" height="8" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" width="10" x="5" y="19"></rect> <line fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="27" x2="27" y1="5" y2="24"></line> <line fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="27" x2="27" y1="26" y2="28"></line> <line fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="4" x2="24" y1="11" y2="11"></line> <line fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="4" x2="24" y1="7" y2="7"></line> <line fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="4" x2="24" y1="15" y2="15"></line> <line fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="18" x2="24" y1="19" y2="19"></line> <line fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="18" x2="24" y1="23" y2="23"></line> <line fill="none" stroke="#9ca3af" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="18" x2="24" y1="27" y2="27"></line> </g> </g></svg>
                      <span class="absolute bg-red-500 text-[7pt] font-medium rounded-full flex justify-center items-center w-4 h-4 top-0 -right-2"><?=$nbr_p?></span>

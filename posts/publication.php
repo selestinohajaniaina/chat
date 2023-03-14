@@ -1,23 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/output.css">
+</head>
+<style>
+    #publication{
+        background:rgb(55, 65, 81);
+    }
+</style>
+<body>
+    <?php
+    require('../navbar.php');
+    require('../side/sidebar.php');
+
+    //selection de publication
+
+    $postSelect = $db -> prepare("SELECT * FROM post WHERE idOwner=:idUser ORDER BY id_post DESC");
+    $postSelect->execute([
+        "idUser"=>$idUser,
+    ]);
+    $fetch=$postSelect->fetchAll();
+    $listeNbr = count($fetch);
+    
+    ?>
+
 <?php
-
-
-//selection de publication
-
-$postSelect = $db -> prepare("SELECT * FROM post ORDER BY id_post DESC");
-$postSelect->execute();
-$fetch=$postSelect->fetchAll();
-$listeNbr = count($fetch);
 
 //list of all post 
 
 ?>
-<div class="bg-gray-50 flex flex-col items-center sm:w-[80%] sm:absolute sm:right-0">
+<div class=" flex flex-col items-center">
 <?php
 
 for($i=0;$i<$listeNbr;$i++){
     ?>
-<div class="bg-gray-100 rounded w-fit mt-2 shadow-xl relative">
-    <div class="m-3 w-fit relative">
+<div class="bg-gray-100 w-fit m-1 shadow-xl rounded">
+    <div class="m-3 w-fit">
         <?php
             $post_id=$fetch[$i]["id_post"];
             $post_img=$fetch[$i]["photo"];
@@ -52,7 +74,7 @@ for($i=0;$i<$listeNbr;$i++){
 
                         ?>
 
-                            <div class="rounded-3xl font-bold text-3xl text-slate-700 bg-yellow-200 w-12 h-12 flex justify-center items-center border-solid border-4 border-gray-200"><?=strtoupper($nameUserPost[0])?></div>
+                            <div class="rounded-3xl font-mono text-3xl bg-yellow-200 w-12 h-12 flex justify-center items-center border-solid border-4 border-gray-200"><?=strtoupper($nameUserPost[0])?></div>
                             
                             <?php
 
@@ -98,19 +120,19 @@ for($i=0;$i<$listeNbr;$i++){
             <!-- image + legende du publication -->
             
             <div>
-            <p class="p-2 bg-gray-100 relative font-medium max-w-lg text-justify"><?=$post_legende?></p>
-            <div class="rounded sm:w-132  overflow-hidden">
-            <img src="../img/post/<?=$post_img?>"  title="<?=$post_img?>" class="w-132 cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" />
+            <p class="p-2 bg-gray-100 font-medium max-w-lg text-justify"><?=$post_legende?></p>
+            <div class="rounded overflow-hidden">
+            <img src="../img/post/<?=$post_img?>" id="post_<?=$post_id?>" title="<?=$post_img?>" class="sm:w-132 cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" />
             </div>
             </div>
             <?php
                 }
             ?>
-
+            
                 <!-- like + comment + share -->
 
-            <div class="bg-gray-200 flex justify-around mt-2 font-medium rounded">
-                <div class="bg-slate-300 w-full flex justify-center items-center cursor-pointer rounded-3xl hover:opacity-80 m-[6px] overflow-hidden">
+                <div class="bg-gray-200 flex justify-around mt-2 font-medium rounded">
+                <div class="bg-slate-300 w-full flex justify-center items-center cursor-pointer rounded-3xl hover:opacity-80 m-[6px]">
                     <!-- like boutton -->
                     <a href="../post?id_post=<?=$post_id?>" class="w-full flex justify-center relative">
                     <?php
@@ -119,7 +141,7 @@ for($i=0;$i<$listeNbr;$i++){
                     </a>
                 </div>
 
-                <div class="bg-slate-300 w-full relative flex justify-center items-center overflow-hidden cursor-pointer rounded-3xl hover:opacity-80 m-[6px]">
+                <div class="bg-slate-300 relative w-full flex justify-center items-center overflow-hidden cursor-pointer rounded-3xl hover:opacity-80 m-[6px]">
                     <!-- comment boutton -->
                     <?php
                         require('../post/comments/nbr.php');
@@ -145,3 +167,6 @@ for($i=0;$i<$listeNbr;$i++){
 ?>
 
 </div>
+
+</body>
+</html>

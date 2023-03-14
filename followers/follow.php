@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Suivie(s)</title>
     <link rel="stylesheet" href="../css/output.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image">
     <style>
-        #Accueil{
-            background-color: rgb(17, 24, 39);
+        #suivie{
+            background-color: rgb(55, 65, 81);
         }
     </style>
 </head>
@@ -18,8 +18,7 @@
     require('../navbar.php');
     require('../side/sidebar.php');
     require("liste.php");
-    require("create.php");
 
-    ?>
+   ?>
 </body>
 </html>
