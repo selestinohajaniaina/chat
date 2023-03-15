@@ -7,7 +7,7 @@
     // echo $nbrFollow;
 
     ?>
-        <div class="bg-gray-500 h-full p-8 flex flex-col items-center sm:w-[80%] sm:absolute sm:right-0">
+        <div class="bg-gray-50 h-full p-8 flex flex-col items-center sm:w-[80%] sm:absolute sm:right-0">
     <?php
 
     for($i=0;$i<$nbrFollow;$i++){

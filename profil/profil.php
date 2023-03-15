@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="../css/tailwind.css">
     <link rel="stylesheet" href="../css/output.css">
 </head>
-<style>
-  #username{
-        background:rgb(55, 65, 81);
-    }
-</style>
+
 <body>
 
 <?php 
