@@ -50,6 +50,9 @@ module.exports = {
       },
       width: {
         '132': '32rem',
+      },
+      screens: {
+        'md': '768px',
       }
     },
   },

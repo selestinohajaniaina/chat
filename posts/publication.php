@@ -33,7 +33,7 @@
 //list of all post 
 
 ?>
-<div class=" flex flex-col items-center">
+<div class="bg-gray-50 flex flex-col items-center sm:w-[80%] sm:absolute sm:right-0">
 <?php
 
 for($i=0;$i<$listeNbr;$i++){
