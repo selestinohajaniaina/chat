@@ -16,7 +16,7 @@
             //date now
             $startTime = date("Y-m-d H:i:s");
             //add 3 hour to time
-            $now = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($startTime)));
+            $now = date('Y-m-d H:i:s',strtotime('+1 hour',strtotime($startTime)));
             
             //insering comments into db
             $insertComs = $db -> prepare("INSERT INTO comment(id_post, idUser, texte, date_coms) VALUES (:post_id, :user_id, :coms_text, :coms_date)");

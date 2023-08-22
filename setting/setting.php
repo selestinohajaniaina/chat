@@ -14,7 +14,7 @@
     require('../side/sidebar.php');
     require("fetchdb.php");
     ?>
-    <form method="get">
+    <form method="post">
     <div class="flex bg-gray-50 items-center justify-center  mt-2 sm:absolute sm:right-0 sm:w-[80%] w-full">
   <div class="grid bg-white rounded-lg border-solid border-2 shadow-xl w-11/12 md:w-9/12 lg:w-1/2">
     <div class="flex justify-center py-4">
@@ -76,13 +76,13 @@
 </form>
 <?php 
 // require('insert.php');
-if(isset($_GET["update"])){
-  $new_name = $_GET["new_name"];
-  $new_mail = $_GET["new_mail"];
-  $new_password = $_GET["new_password"];
-  $new_confirm = $_GET["new_confirm"];
-  $new_pdp = $_FILES["new_pdp"]["name"];
-  $new_pdc = $_FILES["new_pdc"]["name"];
+if(isset($_POST["update"])){
+  $new_name = $_POST["new_name"];
+        $new_mail = $_POST["new_mail"];
+        $new_password = $_POST["new_password"];
+        $new_confirm = $_POST["new_confirm"];
+        $new_pdp = !empty($_FILES["new_pdp"]["name"]) ? $_FILES["new_pdp"]["name"] : $pdp;
+        $new_pdc = !empty($_FILES["new_pdc"]["name"]) ? $_FILES["new_pdc"]["name"] : $pdc;
   echo `$new_name $new_mail $new_password $new_confirm $new_pdp $new_pdc`;
   echo 'ok';
 }
